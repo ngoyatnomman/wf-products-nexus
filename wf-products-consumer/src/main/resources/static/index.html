@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.12.1.js"></script>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+    $.ajax({
+        url:'/showPage.do?pageno=1',
+        type:'POST',
+        dataType:'json',
+        contentType:'application/json;charset=utf8',
+        data:JSON.stringify({
+            productname:'笔记本'
+        }),
+        success:function (data) {
+            console.log('success');
+            console.log(data);
+        },
+        error:function (e) {
+            console.log('error');
+            console.log(e);
+        }
+    })
+
+
+</script>

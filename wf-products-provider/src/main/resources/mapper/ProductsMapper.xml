@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shy.mapper.ProductsMapper">
+
+    <select id="showPage" parameterType="Products" resultType="map">
+        select q.*, p.productname ,p.productsum ,p.productdesc ,p.productprice
+        from qualities q,products p
+        where q.productid = p.id
+        <if test="productname!=null">
+            and p.productname like concat('%',#{productname},'%')
+        </if>
+        order by p.productdate desc
+    </select>
+
+</mapper>
